@@ -1,0 +1,14 @@
+[Unit]
+Description=3X-UI User Sync Service
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/3x-ui-sync
+EnvironmentFile=/opt/3x-ui-sync/config.env
+ExecStart=/opt/3x-ui-sync/venv/bin/python /opt/3x-ui-sync/sync_xui.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
